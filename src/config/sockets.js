@@ -1,5 +1,5 @@
 const http = require('../server.js')
-const io = require("socket.io")(http, {cors: {origin: "https://gorgeous-faun-efe088.netlify.app"}})
+const io = require("socket.io")(http, {cors: {origin: "https://dubium-front.vercel.app"}})
 
 io.on('connection', socket => {
     console.log('SOCKET CONECTADO:', socket.id)
