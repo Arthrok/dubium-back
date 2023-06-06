@@ -50,7 +50,7 @@ router.post("/", (req, res) => {
         res.setHeader('Set-Cookie', [cookie]).status(200).send({
             success: true,
             message: "Logged",
-            cookie: cookie
+            cookie: token
           })
 
     })
