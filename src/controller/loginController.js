@@ -45,6 +45,7 @@ router.post("/", (req, res) => {
         // const ivToken = jwt.sign({secret: secretData.iv}, "randomString", { expiresIn: "30m" })
         // emitter.emit("recieve", secretData.iv)
         // res.cookie('twj', ivToken, { httpOnly: false, secure: true })
+        res.cookie('jwt', token, {httpOnly: false, secure: true, sameSite: 'none'})
         const cookie = serialize('jwt', token, {httpOnly: false, secure: true, sameSite: 'none'})
         res.setHeader('Set-Cookie', [cookie]).status(200).send({
             success: true,
