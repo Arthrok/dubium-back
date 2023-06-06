@@ -17,7 +17,7 @@ require("./config/MongoConfig.js")
 const cors = require("cors")
 const corsPort = {
     credentials: true,
-    origin: ["gorgeous-faun-efe088.netlify.app"],
+    origin: ["https://gorgeous-faun-efe088.netlify.app"],
 }
 app.use(cors(corsPort))
 //cookie
