@@ -19,7 +19,16 @@ const corsPort = {
     credentials: true,
     origin: ["https://dubium-front.vercel.app"],
 }
+app.use(
+    session({
+      cookie: {
+        sameSite: 'none',
+        secure: true
+      }
+    })
+  );
 app.use(cors(corsPort))
+app.set("trust proxy", 1);
 //cookie
 app.use(cookieParser())
 
