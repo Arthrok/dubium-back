@@ -6,6 +6,8 @@ const { decrypt, encrypt } = require("../auth/crypto.js")
 const { EventEmitter } = require("node:events")
 const emitter = require("../auth/emitter.js")
 const io = require("socket.io-client")
+const { serialize } = require('cookie')
+
 
 
 socket = io('http://localhost:8080')
@@ -43,7 +45,7 @@ router.post("/", (req, res) => {
         // const ivToken = jwt.sign({secret: secretData.iv}, "randomString", { expiresIn: "30m" })
         // emitter.emit("recieve", secretData.iv)
         // res.cookie('twj', ivToken, { httpOnly: false, secure: true })
-        const cookie = ('jwt', token, { httpOnly: false, secure: false})
+        const cookie = serialize('jwt', token, {httpOnly: false, secure: false})
         res.setHeader('Set-Cookie', [cookie]).status(200).send({
             success: true,
             message: "Logged",
