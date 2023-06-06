@@ -3,7 +3,7 @@ const { default: mongoose } = require("mongoose")
 
 // const connection = mongoose.connect("mongodb+srv://arthurmelo1918:71JuBrKKWQr6kAfU@dubium0.o4ru6rq.mongodb.net/Dubium")
 
-const connection = mongoose.connect("mongodb://0.0.0.0:27017/cadastrar-teste")
+const connection = mongoose.connect("mongodb+srv://arthurmelo1918:71JuBrKKWQr6kAfU@dubium0.o4ru6rq.mongodb.net/Dubium")
     .then(() => {
         console.log("Mongoose rodando!")
     }) 
