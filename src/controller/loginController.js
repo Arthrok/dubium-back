@@ -43,13 +43,12 @@ router.post("/", (req, res) => {
         // const ivToken = jwt.sign({secret: secretData.iv}, "randomString", { expiresIn: "30m" })
         // emitter.emit("recieve", secretData.iv)
         // res.cookie('twj', ivToken, { httpOnly: false, secure: true })
-        const cookie = ('jwt', token, { httpOnly: false, secure: true, domain: process.env.NODE_ENV === 'development' ? '.localhost' : '.domain.com' })
-        res.setHeader('Set-Cookie', [cookie]);
-        res.status(200).send({
-          success: true,
-          message: "Logged",
-          jwt: token
-        })
+        const cookie = ('jwt', token, { httpOnly: false, secure: true})
+        res.setHeader('Set-Cookie', [cookie]).status(200).send({
+            success: true,
+            message: "Logged",
+          })
+
     })
     .catch(err => {
         res.send({
